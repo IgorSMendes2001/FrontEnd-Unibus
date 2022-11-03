@@ -2,11 +2,12 @@ import React from "react";
 import { View,Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 export default function Login (){
     const navigation = useNavigation();
     return(
-        <View style={styles.container}>
-            <Animatable.View animation={"fadeInLeft"}  delay={500} style={styles.containerHeader}>
+        <LinearGradient colors = {['#38a29d', '#3008a29d']} style={styles.container}>
+            <Animatable.View colors = {['#38a29d', '#3008a29d']}  animation={"fadeInLeft"}  delay={500} style={styles.containerHeader}>
             <Text style={styles.message}>Bem-vindo(a)</Text>
             </Animatable.View>
 
@@ -30,7 +31,7 @@ export default function Login (){
                         <Text style={styles.registerText}>Não possui uma conta? Cadastre-se gratuitamente</Text>
                     </TouchableOpacity>
             </Animatable.View>
-        </View>
+        </LinearGradient>
     );
 }
 
@@ -47,10 +48,10 @@ const styles = StyleSheet.create({
     message:{
         fontSize:28,
         fontWeight:"bold",
-        color: '#FFF'
+        color: '#ddede7'
     },
     containerForm:{
-        backgroundColor:'#FFF',
+        backgroundColor:'#ddede7',
         flex:1,
         borderTopLeftRadius:25,
         borderTopRightRadius:25,
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     buttonText:{
-        color:'#FFF',
+        color:'#ddede7',
         fontSize:18,
         fontWeight:'bold'
     },

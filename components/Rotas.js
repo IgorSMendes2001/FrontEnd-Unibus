@@ -3,6 +3,7 @@ import { View,Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from "@react-navigation/native";
 import api from '../api/api';
+import { LinearGradient } from "expo-linear-gradient";
 export default function Rotas (){
     const[rotas,setRotas]=useState([]);
     const[carregando,setCarregando]=useState(true);
@@ -22,7 +23,7 @@ export default function Rotas (){
         getRotas();
         },[]);
     return(
-        <View style={styles.container}>
+        <LinearGradient colors = {['#38a29d', '#3008a29d']}style={styles.container}>
         <Animatable.View animation={'fadeInLeft'}delay={500} style={styles.containerHeader} >
             <Text style={styles.title}> Rotas </Text>
             <View style={styles.menu}>
@@ -42,7 +43,7 @@ export default function Rotas (){
                         />
             </View>
         </Animatable.View>
-        </View>
+        </LinearGradient>
     )
         }
 
@@ -59,7 +60,7 @@ export default function Rotas (){
             message:{
                 fontSize:28,
                 fontWeight:"bold",
-                color: '#FFF'
+                color: '#ddede7'
             },
             containerForm:{
                 backgroundColor:'#a1a1a1',
@@ -70,7 +71,7 @@ export default function Rotas (){
                 marginBottom:20
             },
             title:{
-                color:'#FFF',
+                color:'#ddede7',
                 fontSize:40,
                 marginTop:0,
                 textAlign:"center",
@@ -87,7 +88,7 @@ export default function Rotas (){
                 alignSelf:"center"
             },
             buttonText:{
-                color:'#FFF',
+                color:'#ddede7',
                 fontSize:18,
                 fontWeight:'bold',
                 width:'100%',
@@ -105,10 +106,10 @@ export default function Rotas (){
                 color:'#a1a1a1'
             },
             menu:{
-                backgroundColor:'#FFF',
+                backgroundColor:'#ddede7',
                 marginTop:25,
                 borderRadius:25,
-                paddingBottom:280,
+                paddingBottom:80,
                 marginRight:25
             },
         })

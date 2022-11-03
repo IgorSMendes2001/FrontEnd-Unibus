@@ -1,13 +1,14 @@
 import React from "react";
-import { TouchableOpacity,StyleSheet,View,Text } from "react-native";
+import { TouchableOpacity,StyleSheet,View,Text,Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from 'react-native-animatable';
+import { LinearGradient } from "expo-linear-gradient";
 export default function Menu(){
     const navigation = useNavigation();
 return(
-    <View style={styles.container}>
+    <LinearGradient colors = {['#38a29d', '#3008a29d']} style={styles.container}>
     <Animatable.View animation={'fadeInLeft'}delay={500} style={styles.containerHeader} >
-        <Text style={styles.title}> UNIBUS </Text>
+        <Image style={styles.image} resizeMode="contain" source={require('../assets/logo.png')}/>
         <Text style={styles.message}> Seja Bem Vindo ! </Text>
         </Animatable.View>
             <><Animatable.View animation={"fadeInUp"} style={styles.menu}><View>
@@ -26,12 +27,12 @@ return(
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <TouchableOpacity onPress={()=> navigation.navigate('Horários')}>
+                        <TouchableOpacity onPress={()=> navigation.navigate('Cartão')}>
                             <Text style={styles.button}>Solicitar/Renovar Cartão AndeFácil </Text>
                         </TouchableOpacity>
                     </View>
                     </Animatable.View></>
-    </View>
+    </LinearGradient>
 )
     }
 
@@ -48,7 +49,7 @@ return(
         message:{
             fontSize:28,
             fontWeight:"bold",
-            color: '#FFF',
+            color: '#ddede7',
             textAlign:"center"
         },
         containerForm:{
@@ -60,12 +61,19 @@ return(
             marginBottom:20
         },
         title:{
-            color:'#FFF',
+            color:'#ddede7',
             fontSize:40,
             marginTop:0,
             textAlign:"center",
             fontWeight:"bold"
         },
+        image:{
+            marginTop: -470,
+            marginBottom: -310,
+            width:"100%"
+
+        },
+       
         button:{
             backgroundColor:'#20B2AA',
             width:'70%',
@@ -74,10 +82,10 @@ return(
             marginTop:14,
             textAlign:"center",
             alignItems:'center',
-            alignSelf:"center"
+            alignSelf:"center",
         },
         buttonText:{
-            color:'#FFF',
+            color:'#ddede7',
             fontSize:18,
             fontWeight:'bold'
         },
@@ -89,7 +97,7 @@ return(
             color:'#a1a1a1'
         },
         menu:{
-            backgroundColor:'#FFF',
+            backgroundColor:'#ddede7',
             marginTop:5,
             borderRadius:25,
             paddingBottom:380,

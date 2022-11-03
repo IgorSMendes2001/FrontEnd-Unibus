@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { View,Text, StyleSheet, FlatList } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import { LinearGradient } from "expo-linear-gradient";
 import api from '../api/api';
 export default function Horarios (){
     const[horarios,setHorarios]=useState([]);
@@ -20,7 +21,7 @@ export default function Horarios (){
         getHorarios();
         },[]);
     return(
-        <View style={styles.container}>
+        <LinearGradient colors = {['#38a29d', '#3008a29d']} style={styles.container}>
         <Animatable.View animation={'fadeInLeft'}delay={500} style={styles.containerHeader} >
             <Text style={styles.title}> Horários </Text>
             
@@ -31,17 +32,16 @@ export default function Horarios (){
                         renderItem={({item})=>(
                             <>
                             <View>
+                                
                             <Text style={styles.registerText}>{item.diaSemana}</Text>
-                            <Text style={styles.button}>{item.horarios[0]}</Text>
-                            <Text style={styles.button}>{item.horarios[1]}</Text>
-                            <Text style={styles.button}>{item.horarios[2]}</Text>
+                                <Text style={styles.button}>{item.horarios}</Text> 
                             </View>
                             </>
                         )}
                         />
             
         </Animatable.View>
-        </View>
+        </LinearGradient>
     )
         }
 
@@ -58,7 +58,7 @@ export default function Horarios (){
             message:{
                 fontSize:28,
                 fontWeight:"bold",
-                color: '#FFF'
+                color: '#ddede7'
             },
             containerForm:{
                 backgroundColor:'#a1a1a1',
@@ -69,7 +69,7 @@ export default function Horarios (){
                 marginBottom:20
             },
             title:{
-                color:'#FFF',
+                color:'#ddede7',
                 fontSize:40,
                 marginTop:0,
                 textAlign:"center",
@@ -110,7 +110,7 @@ export default function Horarios (){
                 marginTop:20
             },
             menu:{
-                backgroundColor:'#FFF',
+                backgroundColor:'#ddede7',
                 marginTop:25,
                 borderRadius:25,
                 paddingBottom:480,

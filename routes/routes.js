@@ -7,6 +7,7 @@ import Cadastro from "../components/Cadastro";
 import Itinerarios from "../components/Itinerarios";
 import Horarios from "../components/Horarios";
 import Menu from './../components/Menu';
+import Cartao from "../components/Cartao";
 const Stack = createNativeStackNavigator();
 
 export default function Routes(){
@@ -47,11 +48,11 @@ export default function Routes(){
             component={Horarios}
             options={{headerShown:false}}
             />
-            {/* <Stack.Screen
+            <Stack.Screen
             name="Cartão"
             component={Cartao}
             options={{headerShown:false}}
-            /> */}
+            />
         </Stack.Navigator>
     )
 

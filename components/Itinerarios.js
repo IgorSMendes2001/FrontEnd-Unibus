@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { View,Text, StyleSheet, FlatList } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import api from "../api/api";
-import { Dropdown } from "react-native-element-dropdown";
+import { LinearGradient } from "expo-linear-gradient";
 export default function Itinerarios (){
     const[itinerarios,setItinerarios]=useState([]);
     const[carregando,setCarregando]=useState(true);
@@ -20,7 +20,7 @@ export default function Itinerarios (){
         getItinerarios();
         },[]);
     return(
-        <View style={styles.container}>
+        <LinearGradient colors={['#38a29d', '#3008a29d']} style={styles.container}>
         <Animatable.View animation={'fadeInLeft'}delay={500} style={styles.containerHeader} >
             <Text style={styles.title}> Itinerários </Text>
                     <FlatList
@@ -28,20 +28,25 @@ export default function Itinerarios (){
                         data={itinerarios}
                         keyExtractor={({id},index)=>id}
                         renderItem={({item})=>(
-                            <><Text style={styles.registerText}>Ponto Inicial:{item.pontoInicial}</Text>
-                            <Text style={styles.registerText}>Percurso:{item.percurso}</Text>
+                            <>
+                            <Text style={styles.registerText}>{item.rota.nome}</Text>
+                            <Text style={styles.registerText}>Ponto Inicial:{item.pontoInicial}</Text>
+                            <Text style={styles.registerText}>Percurso:</Text>
+                            <View style={styles.title}>
+                            <Text style={styles.percurso}>{item.percurso}</Text>
+                            </View>
                             <Text style={styles.registerText}>Ponto final:{item.pontoFinal}</Text>
                             <Text style={styles.registerText}>Horários disponíveis:</Text>
                             <Text style={styles.button}>{item.horario.horarios[0]}</Text>
                             <Text style={styles.button}>{item.horario.horarios[1]}</Text>
                             <Text style={styles.button}>{item.horario.horarios[2]}</Text>
-                            <Text style={styles.registerText}>{item.rota.nome}</Text></>
+                            </>
 
 
                         )}
                         />
         </Animatable.View>
-        </View>
+        </LinearGradient>
     )
         }
         const styles = StyleSheet.create({
@@ -57,7 +62,7 @@ export default function Itinerarios (){
             message:{
                 fontSize:28,
                 fontWeight:"bold",
-                color: '#FFF'
+                color: '#ddede7'
             },
             containerForm:{
                 backgroundColor:'#a1a1a1',
@@ -68,7 +73,7 @@ export default function Itinerarios (){
                 marginBottom:20
             },
             title:{
-                color:'#FFF',
+                color:'#ddede7',
                 fontSize:40,
                 marginTop:0,
                 textAlign:"center",
@@ -85,7 +90,7 @@ export default function Itinerarios (){
                 alignSelf:"center"
             },
             buttonText:{
-                color:'#FFF',
+                color:'#ddede7',
                 fontSize:18,
                 fontWeight:'bold',
                 width:'100%',
@@ -106,8 +111,21 @@ export default function Itinerarios (){
                 fontSize:18,
                 marginTop:20
             },
+            percurso:{
+                color:'black',
+                fontWeight:'bold',
+                textAlign:'center',
+                fontSize:12,
+                marginTop:20,
+                backgroundColor:'#97e6c4',
+                width:'100%',
+                borderRadius:14,
+                paddingVertical:8,
+                alignItems:'center',
+                alignSelf:"center"
+            },
             menu:{
-                backgroundColor:'#FFF',
+                backgroundColor:'#ddede7',
                 marginTop:25,
                 borderRadius:25,
                 paddingBottom:280,
