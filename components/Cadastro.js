@@ -1,6 +1,7 @@
 import React from "react";
 import { View,Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import * as Animatable from 'react-native-animatable'
+import { TextInputMask } from 'react-native-text-input-mask'; // Importe a biblioteca de máscara
 import { useNavigation } from "@react-navigation/native";
 export default function Cadastro (){
     const navigation = useNavigation();
@@ -17,14 +18,22 @@ export default function Cadastro (){
                     style={styles.input}
                     />
                     <Text style={styles.title}>CPF</Text>
-                <TextInput
-                    placeholder="Digite seu CPF..."
-                    style={styles.input}
+                    <Text style={styles.title}>CPF</Text>
+                    <TextInputMask
+                        placeholder="Digite seu CPF..."
+                        style={styles.input}
+                        type={'cpf'} 
+                        keyboardType="numeric"
                     />
+
                     <Text style={styles.title}>Email</Text>
-                <TextInput
-                    placeholder="Digite seu email..."
-                    style={styles.input}
+                    <TextInputMask
+                        placeholder="Digite seu email..."
+                        style={styles.input}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        type={'email'} 
                     />
                      <Text style={styles.title}>Senha</Text>
                 <TextInput
